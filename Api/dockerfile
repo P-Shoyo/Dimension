@@ -1,5 +1,5 @@
 FROM openjdk:11
 
-COPY target/DimensioJar.jar /DimensionJar.jar
+COPY Dimensio/Api/target/DimensioJar.jar /DimensionJar.jar
 
 CMD ["java", "-jar", "/DimensionJar.jar"]
