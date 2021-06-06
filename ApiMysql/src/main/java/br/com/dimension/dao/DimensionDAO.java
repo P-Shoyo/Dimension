@@ -45,7 +45,7 @@ public class DimensionDAO {
         PreparedStatement psmysql = null;
         try{
             
-            mysql = DimensionConexao.createConnectionToSQL();
+            mysql = DimensionConexao.createConnectionToMySQL();
             psmysql = (PreparedStatement) mysql.prepareStatement(sql);
             psmysql.setString(1, insercao.getNomeComponente());
             psmysql.setDate(2, new Date(insercao.getData().getTime()));
