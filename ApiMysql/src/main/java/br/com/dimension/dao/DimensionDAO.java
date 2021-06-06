@@ -39,6 +39,9 @@ public class DimensionDAO {
                 if (pstm!=null){
                     pstm.close();
                 }
+                if (psmysql!=null){
+                    psmysql.close();
+                }
                 if (conn!=null){
                     conn.close();
                 }
