@@ -12,9 +12,9 @@ public class DimensionConexao {
 
             return connection;
     }
-        private static final String urlmsql = "jdbc:mysql://localhost:3306/dimension?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-        private static final String usernamemsql= "user_dimension";
-        private static final String passwordmsql = "dimension";
+        private static final String urlmsql = "jdbc:mysql://localhost:3306/dimensionBD?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+        private static final String usernamemsql= "root";
+        private static final String passwordmsql = "urubu100";
         
         public static Connection createConnectionToMySQL() throws Exception {
             Connection connection = DriverManager.getConnection(urlmsql, usernamemsql, passwordmsql);
