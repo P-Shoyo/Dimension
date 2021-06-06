@@ -17,6 +17,7 @@ public class DimensionConexao {
         private static final String passwordmsql = "urubu100";
         
         public static Connection createConnectionToMySQL() throws Exception {
+            Class.forName("com.mysql.jdbc.Driver");
             Connection connection = DriverManager.getConnection(urlmsql, usernamemsql, passwordmsql);
             System.out.println("Conectado ao Banco de dados");
 
