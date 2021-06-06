@@ -13,9 +13,7 @@ public class DimensionDAO {
     public void inserirBD (Insercao insercao){
         String sql = "INSERT INTO registro(nomeComponente, data, dadosColetados) VALUES (?, ?, ?) ";
         Connection conn = null;
-        Connection mysql = null;
         PreparedStatement pstm = null;
-        PreparedStatement psmysql = null;
         try{
             conn = DimensionConexao.createConnectionToSQL();
             pstm = (PreparedStatement) conn.prepareStatement(sql);
@@ -23,13 +21,6 @@ public class DimensionDAO {
             pstm.setDate(2, new Date(insercao.getData().getTime()));
             pstm.setDouble(3, insercao.getDadosColetados());
             pstm.execute();
-            
-            mysql = DimensionConexao.createConnectionToSQL();
-            psmysql = (PreparedStatement) mysql.prepareStatement(sql);
-            psmysql.setString(1, insercao.getNomeComponente());
-            psmysql.setDate(2, new Date(insercao.getData().getTime()));
-            psmysql.setDouble(3, insercao.getDadosColetados());
-            psmysql.execute();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -39,14 +30,8 @@ public class DimensionDAO {
                 if (pstm!=null){
                     pstm.close();
                 }
-                if (psmysql!=null){
-                    psmysql.close();
-                }
                 if (conn!=null){
                     conn.close();
-                }
-                if (mysql!=null){
-                    mysql.close();
                 }
             } catch (SQLException e) {
                 e.printStackTrace();

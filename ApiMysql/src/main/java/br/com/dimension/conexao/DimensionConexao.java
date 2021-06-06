@@ -11,10 +11,12 @@ public class DimensionConexao {
 
             return connection;
     }
-        
+        private static final String urlmql = "jdbc:mysql://0.0.0.0:3306/dimensionBD?autoReconnect=true&useSSL=false";
+        private static final String usernamemql = "root";
+        private static final String passwordmql = "urubu100";
         public static Connection createConnectiontoMySQL() throws Exception {
-            String mysqlUrl = "jdbc:mysql://0.0.0.0:3306/dimensionBD?autoReconnect=true&useSSL=false";
-            Connection mysqlCon = DriverManager.getConnection(mysqlUrl, "root", "urubu100");
+            //String mysqlUrl = "jdbc:mysql://0.0.0.0:3306/dimensionBD?autoReconnect=true&useSSL=false";
+            Connection mysqlCon = DriverManager.getConnection(urlmql, usernamemql, passwordmql);
             System.out.println("Conectado ao MysqlBD");
             
             return mysqlCon;
@@ -32,8 +34,7 @@ public class DimensionConexao {
         if (mysql!=null){
             System.out.println("Conectado com sucesso ao MySQL");
             mysql.close();
-        }
-        
+        }        
         
     }
 }
