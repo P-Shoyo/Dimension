@@ -12,12 +12,13 @@ public class DimensionConexao {
 
             return connection;
     }
-        //private static final String urlmsql = "jdbc:mysql://localhost:3306/dimensionBD?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-        private static final String urlmsql = "jdbc:mysql://0.0.0.0:3306/dimensionBD?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+        private static final String urlmsql = "jdbc:mysql://localhost:3306/dimensionBD?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+        //private static final String urlmsql = "jdbc:mysql://0.0.0.0:3306/dimensionBD?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
         private static final String usernamemsql= "root";
         private static final String passwordmsql = "urubu100";
         
         public static Connection createConnectionToMySQL() throws Exception {
+            Class.forName("com.mysql.jdbc.Driver"); 
             Connection connection = DriverManager.getConnection(urlmsql, usernamemsql, passwordmsql);
             System.out.println("Conectado ao Banco de dados");
 
