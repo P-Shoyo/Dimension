@@ -17,6 +17,7 @@ public class ApiInsercao {
         insercao.setData(new Date());
         DimensionDAO dimensionDAO = new DimensionDAO();
         dimensionDAO.inserirBD(insercao);
+        dimensionDAO.inserirMysqlBD(insercao);
     }
     public  void processador(){
         Insercao insercao = new Insercao();
@@ -26,6 +27,7 @@ public class ApiInsercao {
         insercao.setData(new Date());
         DimensionDAO dimensionDAO = new DimensionDAO();
         dimensionDAO.inserirBD(insercao);
+        dimensionDAO.inserirMysqlBD(insercao);
     }
     public void sistema(){
         Insercao insercao = new Insercao();
@@ -35,6 +37,7 @@ public class ApiInsercao {
         insercao.setData(new Date());
         DimensionDAO dimensionDAO = new DimensionDAO();
         dimensionDAO.inserirBD(insercao);
+        dimensionDAO.inserirMysqlBD(insercao);
     }
     public void processos(){
         Insercao insercao = new Insercao();
@@ -48,11 +51,13 @@ public class ApiInsercao {
                 insercao.setNomeComponente(String.valueOf(processo.getNome()));
                 insercao.setData(new Date());
                 dimensionDAO.inserirBD(insercao);
+                dimensionDAO.inserirMysqlBD(insercao);
 
                 insercao.setDadosColetados(Double.valueOf(processo.getUsoMemoria()));
                 insercao.setNomeComponente(String.valueOf(processo.getNome()));
                 insercao.setData(new Date());
                 dimensionDAO.inserirBD(insercao);
+                dimensionDAO.inserirMysqlBD(insercao);
             }
             else{ }
 

@@ -14,7 +14,7 @@ public class DimensionConexao {
         
         public static Connection createConnectiontoMySQL() throws Exception {
             String mysqlUrl = "jdbc:mysql://0.0.0.0:3306/dimensionBD?autoReconnect=true&useSSL=false";
-            Connection mysqlCon = DriverManager.getConnection(mysqlUrl, "ubuntu", "urubu100");
+            Connection mysqlCon = DriverManager.getConnection(mysqlUrl, "root", "urubu100");
             System.out.println("Conectado ao MysqlBD");
             
             return mysqlCon;

@@ -53,4 +53,34 @@ public class DimensionDAO {
             }
         }
     }
+    
+    public void inserirMysqlBD (Insercao insercao){
+        String sql = "INSERT INTO registro(nomeComponente, data, dadosColetados) VALUES (?, ?, ?) ";
+        Connection mysql = null;
+        PreparedStatement psmysql = null;
+        try{
+            
+            mysql = DimensionConexao.createConnectionToSQL();
+            psmysql = (PreparedStatement) mysql.prepareStatement(sql);
+            psmysql.setString(1, insercao.getNomeComponente());
+            psmysql.setDate(2, new Date(insercao.getData().getTime()));
+            psmysql.setDouble(3, insercao.getDadosColetados());
+            psmysql.execute();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            try{
+                if (psmysql!=null){
+                    psmysql.close();
+                }               
+                if (mysql!=null){
+                    mysql.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
