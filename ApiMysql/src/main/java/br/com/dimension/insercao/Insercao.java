@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Insercao {
     private  int idRegistro;
-    private Date data = new Date();
+    private Date data;
     private Double dadosColetados;
     private String nomeComponente;
     
@@ -31,10 +31,9 @@ public class Insercao {
         return formatoDH.format(data);
     }
 
-//    public void setData(Date data) {
-//        //this.data = data;
-//        this.data = date;
-//    }
+    public void setData(Date data) {
+        this.data = data;
+    }
 
     public Double getDadosColetados() {
         return dadosColetados;
@@ -42,10 +41,6 @@ public class Insercao {
 
     public void setDadosColetados(Double dadosColetados) {
         this.dadosColetados = dadosColetados;
-    }
-
-    public void setData(Date date) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 
