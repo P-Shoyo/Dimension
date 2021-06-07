@@ -7,4 +7,4 @@ ENV MYSQL_DATABASE dimensionBD
 # executed during container startup
 COPY ./sql-scripts/ /docker-entrypoint-initdb.d/
 
-docker build -t mysql . 
+sudo docker build -t mysql . 
