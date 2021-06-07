@@ -12,8 +12,8 @@ public class DimensionConexao {
 
             return connection;
     }
-        //private static final String urlmsql = "jdbc:mysql://0.0.0.0:3306/dimensionBD?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC?autoReconnect=true&useSSL=false";
-        private static final String urlmsql = "jdbc:mysql://mydatabase:3306/dimensionBD";
+        private static final String urlmsql = "jdbc:mysql://127.0.0.1:3306/dimensionBD?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC?autoReconnect=true&useSSL=false";
+        //private static final String urlmsql = "jdbc:mysql://127.0.0.1:3306/dimensionBD";
         private static final String usernamemsql= "ubuntu";
         private static final String passwordmsql = "urubu100";
         
