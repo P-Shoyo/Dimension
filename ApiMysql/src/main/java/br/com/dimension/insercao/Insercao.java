@@ -9,7 +9,7 @@ public class Insercao {
     private Double dadosColetados;
     private String nomeComponente;
     
-    SimpleDateFormat formatoDH = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+    SimpleDateFormat formatoDH = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
     public String getNomeComponente() {
         return nomeComponente;
