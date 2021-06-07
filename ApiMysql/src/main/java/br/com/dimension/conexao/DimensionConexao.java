@@ -14,7 +14,7 @@ public class DimensionConexao {
     }
         private static final String urlmsql = "jdbc:mysql://0.0.0.0:3306/dimensionBD?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC?autoReconnect=true&useSSL=false";
        //private static final String urlmsql = "jdbc:mysql://0.0.0.0:3306/dimensionBD";
-        private static final String usernamemsql= "root";
+        private static final String usernamemsql= "ubuntu";
         private static final String passwordmsql = "urubu100";
         
         public static Connection createConnectionToMySQL() throws Exception {
