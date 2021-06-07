@@ -25,28 +25,34 @@ public class DimensionConexao {
             return connection;
         }*/
         
-        Connection con;
-        public Connection createConnectionToMySQL() throws Exception {
+        //Connection con;
+        public static Connection createConnectionToMySQL() throws Exception {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver"); 
                 String url = "jdbc:mysql://172.0.0.1:3306/dimensionBD";
-                con = DriverManager.getConnection(url, "root", "urubu100");
+                Connection con = DriverManager.getConnection(url, "root", "urubu100");
                 System.out.println("Conectado ao Banco de dados");
+                return con;
             } catch (ClassNotFoundException | SQLException e) {
                 System.out.println(e);
             }      
-            return con;
+            return null;
         }
         
 
     public static void main(String[] args) throws Exception {
-        Connection con= createConnectionToSQL();
+        Connection con = createConnectionToSQL();
         
         DimensionConexao conn = new DimensionConexao();
         Connection connection = conn.createConnectionToMySQL();
 
         if (con!=null){
             System.out.println("Conectado com sucesso ao Azure");
+            con.close();
+        }
+        
+        if (connection!=null){
+            System.out.println("Conectado com sucesso ao MySQL");
             con.close();
         }
         
