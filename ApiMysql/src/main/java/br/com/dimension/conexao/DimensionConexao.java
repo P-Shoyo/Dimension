@@ -29,7 +29,7 @@ public class DimensionConexao {
         public static Connection createConnectionToMySQL() throws Exception {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver"); 
-                String url = "jdbc:mysql://172.0.0.1:3306/dimensionBD";
+                String url = "jdbc:mysql://172.17.0.1:3306/dimensionBD";
                 Connection con = DriverManager.getConnection(url, "root", "urubu100");
                 System.out.println("Conectado ao Banco de dados");
                 return con;
