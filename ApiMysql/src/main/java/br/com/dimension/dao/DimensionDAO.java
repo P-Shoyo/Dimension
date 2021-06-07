@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 
 
 public class DimensionDAO {
@@ -18,7 +19,7 @@ public class DimensionDAO {
             conn = DimensionConexao.createConnectionToSQL();
             pstm = (PreparedStatement) conn.prepareStatement(sql);
             pstm.setString(1, insercao.getNomeComponente());
-            pstm.setDate(2, new Date(insercao.getData().getTime()));
+            pstm.setString(2, insercao.getData());
             pstm.setDouble(3, insercao.getDadosColetados());
             pstm.execute();
 
@@ -48,7 +49,7 @@ public class DimensionDAO {
             mysql = DimensionConexao.createConnectionToMySQL();
             psmysql = (PreparedStatement) mysql.prepareStatement(sql);
             psmysql.setString(1, insercao.getNomeComponente());
-            psmysql.setDate(2, new Date(insercao.getData().getTime()));
+            psmysql.setString(2, insercao.getData());
             psmysql.setDouble(3, insercao.getDadosColetados());
             psmysql.execute();
 

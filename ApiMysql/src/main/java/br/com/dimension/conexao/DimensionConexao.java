@@ -31,7 +31,7 @@ public class DimensionConexao {
                 Class.forName("com.mysql.cj.jdbc.Driver"); 
                 String url = "jdbc:mysql://172.17.0.1:3306/dimensionBD";
                 Connection con = DriverManager.getConnection(url, "root", "urubu100");
-                System.out.println("Conectado ao Banco de dados");
+                System.out.println("Conectado ao Banco de dados MySQL");
                 return con;
             } catch (ClassNotFoundException | SQLException e) {
                 System.out.println(e);

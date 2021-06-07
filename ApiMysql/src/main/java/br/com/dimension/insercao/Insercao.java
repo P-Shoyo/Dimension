@@ -1,12 +1,15 @@
 package br.com.dimension.insercao;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Insercao {
     private  int idRegistro;
-    private Date data;
+    private Date data = new Date();
     private Double dadosColetados;
     private String nomeComponente;
+    
+    SimpleDateFormat formatoDH = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
     public String getNomeComponente() {
         return nomeComponente;
@@ -24,13 +27,14 @@ public class Insercao {
         this.idRegistro = idRegistro;
     }
 
-    public Date getData() {
-        return data;
+    public String getData() {
+        return formatoDH.format(data);
     }
 
-    public void setData(Date data) {
-        this.data = data;
-    }
+//    public void setData(Date data) {
+//        //this.data = data;
+//        this.data = date;
+//    }
 
     public Double getDadosColetados() {
         return dadosColetados;
@@ -38,6 +42,10 @@ public class Insercao {
 
     public void setDadosColetados(Double dadosColetados) {
         this.dadosColetados = dadosColetados;
+    }
+
+    public void setData(Date date) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 
