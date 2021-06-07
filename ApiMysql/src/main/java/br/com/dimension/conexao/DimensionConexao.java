@@ -12,9 +12,9 @@ public class DimensionConexao {
 
             return connection;
     }
-        private static final String urlmsql = "jdbc:mysql://127.0.0.1:3306/dimensionBD?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC?autoReconnect=true&useSSL=false";
-        //private static final String urlmsql = "jdbc:mysql://127.0.0.1:3306/dimensionBD";
-        private static final String usernamemsql= "ubuntu";
+        //private static final String urlmsql = "jdbc:mysql://localhost:3306/dimensionBD?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC?autoReconnect=true&useSSL=false";
+        /*private static final String urlmsql = "jdbc:mysql://127.0.0.1:3306/dimensionBD";
+        private static final String usernamemsql= "root";
         private static final String passwordmsql = "urubu100";
         
         public static Connection createConnectionToMySQL() throws Exception {
@@ -23,21 +23,37 @@ public class DimensionConexao {
             System.out.println("Conectado ao Banco de dados");
 
             return connection;
-    }
+        }*/
+        
+        Connection con;
+        public Connection createConnectionToMySQL() throws Exception {
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver"); 
+                String url = "jdbc:mysql://172.0.0.1:3306/dimensionBD";
+                con = DriverManager.getConnection(url, "root", "urubu100");
+                System.out.println("Conectado ao Banco de dados");
+            } catch (ClassNotFoundException | SQLException e) {
+                System.out.println(e);
+            }      
+            return con;
+        }
+        
 
     public static void main(String[] args) throws Exception {
         Connection con= createConnectionToSQL();
-        Connection mysql = createConnectionToMySQL();
+        
+        DimensionConexao conn = new DimensionConexao();
+        Connection connection = conn.createConnectionToMySQL();
 
         if (con!=null){
             System.out.println("Conectado com sucesso ao Azure");
             con.close();
         }
         
-        if (mysql!=null){
+        /*if (mysql!=null){
             System.out.println("Conectado com sucesso ao MySQL");
             mysql.close();
-        }        
+        }     */   
         
     }
 }
