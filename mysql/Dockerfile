@@ -1,4 +1,10 @@
-# Derivando da imagem oficial do MySQL
+# Derived from official mysql image (our base image)
 FROM mysql:5.7
-# Adicionando os scripts SQL para serem executados na criação do banco
+# Add a database
+ENV MYSQL_DATABASE dimensionBD
+# Add the content of the sql-scripts/ directory to your image
+# All scripts in docker-entrypoint-initdb.d/ are automatically
+# executed during container startup
 COPY ./sql-scripts/ /docker-entrypoint-initdb.d/
+
+docker build -t mysql . 
