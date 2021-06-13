@@ -8,7 +8,7 @@
 :: Prerequisites
 :: -------------
 
-:: Verify node.js installed
+:: Verify node.js installed change
 where node 2>nul >nul
 IF %ERRORLEVEL% NEQ 0 (
   echo Missing node.js executable, please install node.js, if already installed make sure it can be reached from current environment.
