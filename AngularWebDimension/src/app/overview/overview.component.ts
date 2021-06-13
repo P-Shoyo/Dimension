@@ -121,12 +121,6 @@ refreshDashList() {
     this.DashList = data;
   });
 }
-
-  // updateChart(element) {
-  //   this.chart.data.datasets[0].data.push(element.dadosColetados);
-  //   this.chart.data.labels[0].push(element.data.split(" ")[1]);
-  //   this.chart.update();
-  // }
   
 }
 
