@@ -49,7 +49,7 @@ export class OverviewComponent implements OnInit {
                   fill: false
                 }, {
                   label: 'Perigo',
-                  data: [85,85,85,85,85,85,85,85,85,85],
+                  data: [85,85,85,85,85,85,85,85,85,85,85,85,85,85,85,85],
                   borderColor: '#ff2020',
                   fill: false                
                 },

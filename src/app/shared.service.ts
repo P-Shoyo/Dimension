@@ -31,6 +31,10 @@ export class SharedService {
   getRegistroPlacaList():Observable<any[]> {
     return this.http.get<any>(this.APIURL + '/registro/GetPlaca');
   }
+
+  getRegistroDiscoList():Observable<any[]> {
+    return this.http.get<any>(this.APIURL + '/registro/GetDisco');
+  }
   
   // method CRUD de usuarios
   getUsuarioList():Observable<any[]> {
