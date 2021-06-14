@@ -417,7 +417,7 @@ details[open] summary:after {
 
 .card-info h1 {
     color: #ebe7e1;
-    margin: 5rem 0 2rem 5rem;
+    margin: 2rem 1rem 2rem 5rem;
 }
 
 .card-info span {
@@ -446,10 +446,12 @@ details[open] summary:after {
 .card-faq {
     background-color: #202020;
     color: #ebe7e1;
-    height: 50%;
+    height: 100%;
     width: 70%;
     border-radius: 10px;
     margin-left: 105px;
+    padding: 20px;
+    padding-top: 80px;
     /* margin-top: .8rem; */
 }
 
