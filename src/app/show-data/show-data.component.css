@@ -363,7 +363,7 @@ details[open] summary:after {
 
 .chart-cpu, .chart-gpu {
     border: 2px solid #202020;
-    width: 100%;
+    width: 50%;
     border-radius: 10px;
     margin-top: .8rem;
 }
