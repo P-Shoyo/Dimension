@@ -368,6 +368,13 @@ details[open] summary:after {
     margin-top: .8rem;
 }
 
+.chart-dis, .chart-gpu {
+    border: 2px solid #202020;
+    width: 50%;
+    border-radius: 10px;
+    margin-top: .8rem;
+}
+
 .chart-disco {
     grid-area: disco;
 }

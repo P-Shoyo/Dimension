@@ -47,11 +47,12 @@ export class ShowDataComponent implements OnInit {
                       : '#ff2020'                    
                 }, 
                   fill: false
-                }, {
-                  label: 'Perigo',
-                  data: [85,85,85,85,85,85,85,85,85,85],
-                  borderColor: '#f88',
-                  fill: false                
+                // }, {
+                //   type: 'line',
+                //   label: 'Perigo',
+                //   data: [85,85,85,85,85,85,85,85,85,85],
+                //   borderColor: '#f88',
+                //   fill: false   
                 },
               ]
             },
@@ -71,8 +72,11 @@ export class ShowDataComponent implements OnInit {
                     labelString: 'Horário',
                     fontSize: 18
                   },
+                  // type: 'time',
                   ticks: {
-                      maxTicksLimit: 10
+                    autoSkip: true,
+                    maxTicksLimit: 10,
+                    max: 10
                     },
                 }],
                 yAxes: [{
@@ -112,7 +116,7 @@ export class ShowDataComponent implements OnInit {
                       : valor < 50 ? "Bom"
                       : "Cuidado"
                   }
-                 }
+                }
               }
             }
           })

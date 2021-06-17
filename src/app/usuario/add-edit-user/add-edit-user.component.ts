@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-add-edit-user',
+  selector: 'app-cadastro',
   templateUrl: './add-edit-user.component.html',
   styleUrls: ['./add-edit-user.component.css']
 })

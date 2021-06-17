@@ -15,6 +15,7 @@ import { ConfiguracoesComponent } from './configuracoes/configuracoes.component'
 import { ChartsModule } from 'ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AddEditUserComponent,
     HomeComponent,
     OverviewComponent,
-    ConfiguracoesComponent
+    ConfiguracoesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

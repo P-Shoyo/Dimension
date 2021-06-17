@@ -1,37 +1,57 @@
+body {
+  padding: 0;
+  margin: 0;
+  background: #ebe7e1;
+}
+
 header {
-    height: 80px;
-    width: 100%;
-    position: fixed;
-    background-color: #282828;
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  background-color: #282828;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .menu {
-    list-style: none;
-    display: flex;
+  list-style: none;
+  display: flex;
 }
 
 .menu li a {
-    color: #fff;
-    display: block;
-    text-decoration: none;
-    font-size: 25px;
-    margin-left: 10px;
+  color: #fff;
+  display: block;
+  text-decoration: none;
+  font-size: 25px;
+  margin-left: 10px;
 }
 
 .menu li a {
-    color: #f0f0f0;
-    display: block;
-    text-decoration: none;
-    padding: 10px 20px 10px 20px;
-    border-radius: 10px;
-    margin-left: 5px;
+  color: #f0f0f0;
+  display: block;
+  text-decoration: none;
+  padding: 10px 20px 10px 20px;
+  border-radius: 10px;
+  margin-left: 5px;
 }
 
 .logo {
-    padding-left: 5%;
-    height: 50px;
+  padding-left: 5%;
+  height: 50px;
+}
+
+a {
+  font-weight: bold;
+  color: #404040;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #404040;
+  text-decoration: underline;
 }
