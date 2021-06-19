@@ -11,25 +11,31 @@
       <div class="login">
         <h1 class="titulo space-around">Cadastre-se:</h1>
         <form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
-          <!-- <div *ngIf="(nomeFuncionario.invalid && nomeFuncionario.touched) || nomeFuncionario.dirty">
+          <div *ngIf="(nomeFuncionario.invalid && nomeFuncionario.touched) || nomeFuncionario.dirty">
             <small *ngIf="nomeFuncionario.errors?.required" class="text-danger">Digite um nome</small>
-          </div> -->
-          <input 
+          </div>
+          <input
+            id="nomeFuncionario"
             type="text"
             #nomeFuncionario ="ngModel"
             [(ngModel)]="userService.selectedUser.nomeFuncionario"
-            name="nomeFuncionario"
+            name="nomeFuncionario"            
             placeholder="Nome"
             class="form-control" 
+            required
             >
 
+          <div *ngIf="(sobrenomeFuncionario.invalid && sobrenomeFuncionario.touched) || sobrenomeFuncionario.dirty">
+            <small *ngIf="sobrenomeFuncionario.errors?.required" class="text-danger">Digite um sobrenome</small>
+          </div>
           <input 
             type="text"
             #sobrenomeFuncionario ="ngModel"
             [(ngModel)]="userService.selectedUser.sobrenomeFuncionario"
             name="Sobrenome"
             placeholder="Sobrenome"
-            class="form-control" 
+            class="form-control"
+            required 
             >
 
           <!-- <input 
@@ -40,6 +46,10 @@
             placeholder="Telefone"
             > -->
 
+          <div *ngIf="(loginFuncionario.invalid && loginFuncionario.touched) || loginFuncionario.dirty">
+            <small *ngIf="loginFuncionario.errors?.required" class="text-danger">Digite um e-mail</small>
+            <small *ngIf="loginFuncionario.errors?.pattern" class="text-danger">Por favor, digite um email válido</small>
+          </div>
           <input 
             type="text"
             #loginFuncionario ="ngModel"
@@ -47,8 +57,12 @@
             name="loginFuncionario"
             placeholder="Email"
             class="form-control" 
+            required
             >
 
+          <div *ngIf="(senhaFuncionario.invalid && senhaFuncionario.touched) || senhaFuncionario.dirty">
+            <small *ngIf="senhaFuncionario.errors?.required" class="text-danger">Digite uma senha</small>
+          </div>
           <input 
             type="password"
             #senhaFuncionario ="ngModel"
@@ -56,18 +70,24 @@
             name="senhaFuncionario"
             placeholder="Senha"
             class="form-control" 
+            required
             >
 
-          <input
-          type="submit"
-          value="Cadastrar"
-          >
+          <button class="button" [disabled]="signUpForm.invalid">Cadastrar</button>
 
-          <div class="success" *ngIf="showSuccesMessage">
+          <a routerLink="/forgot">
+            <p style="text-align: center; margin-top: 20px;">Esqueceu sua senha?</p>
+          </a>
+          <p style="text-align: center;">
+            <span>Já tem uma conta?</span>
+            <a routerLink="/login"> Entre aqui</a>
+          </p>
+
+          <div class="alert alert-success" *ngIf="showSuccesMessage">
             Cadastro realizado com sucesso!
           </div>
 
-          <div class="alert" *ngIf="showSuccesMessage">
+          <div class="alert-danger" *ngIf="showSuccesMessage">
             {{serverErrorMessage}}
           </div>
 

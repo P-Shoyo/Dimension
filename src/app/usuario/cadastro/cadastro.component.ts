@@ -14,50 +14,61 @@ export class CadastroComponent implements OnInit {
 
   constructor(public userService: UserService) { }
 
-  register = new FormGroup ({
-    nomeFuncionario: new FormControl('', [
-      Validators.required]),
-    sobrenomeFuncionario: new FormControl('', [
-      Validators.required]),
-    phone: new FormControl('', [
-      Validators.required,
-      Validators.pattern("^[0-9]*$"),
-      Validators.minLength(10),
-      Validators.maxLength(11)]),
+  // register = new FormGroup ({
+  //   nomeFuncionario: new FormControl('', [
+  //     Validators.required]),
+  //   sobrenomeFuncionario: new FormControl('', [
+  //     Validators.required]),
+  //   phone: new FormControl('', [
+  //     Validators.required,
+  //     Validators.pattern("^[0-9]*$"),
+  //     Validators.minLength(10),
+  //     Validators.maxLength(11)]),
     
     
-    loginFuncionario: new FormControl('',[
-      Validators.required,
-      Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
-    senhaFuncionario: new FormControl('', [
-      Validators.required]),
-    }
-  )
+  //   loginFuncionario: new FormControl('',[
+  //     Validators.required,
+  //     Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
+  //   senhaFuncionario: new FormControl('', [
+  //     Validators.required]),
+  //   }
+  // )
 
-  get nomeFuncionario(){
-    return this.register.get('nomeFuncionario')
-  }
+  // get nomeFuncionario(){
+  //   return this.register.get('nomeFuncionario')
+  // }
 
-  get sobrenomeFuncionario(){
-    return this.register.get('sobrenomeFuncionario')
-  }
+  // get sobrenomeFuncionario(){
+  //   return this.register.get('sobrenomeFuncionario')
+  // }
 
-  get telefone(){
-    return this.register.get('telefone')
-  }
+  // get telefone(){
+  //   return this.register.get('telefone')
+  // }
 
-  get loginFuncionario(){
-    return this.register.get('loginFuncionario')
-  }
+  // get loginFuncionario(){
+  //   return this.register.get('loginFuncionario')
+  // }
 
-  get senhaFuncionario(){
-    return this.register.get('senhaFuncionario')
-  }
+  // get senhaFuncionario(){
+  //   return this.register.get('senhaFuncionario')
+  // }
 
   showSuccesMessage: boolean;
   serverErrorMessage: string;
 
+  cadastro: FormGroup;
+
   ngOnInit(): void {
+
+    this.cadastro = new FormGroup({
+      nomeFuncionario: new FormControl( this.userService.selectedUser.nomeFuncionario, [
+        Validators.required
+      ]),
+      loginFuncionario: new FormControl('',[
+      Validators.required,
+      Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
+    })
   }
 
   onSubmit(form: NgForm) {
