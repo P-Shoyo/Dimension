@@ -3,7 +3,8 @@
     <div class="sidebar">
         <div class="sidemenu">
             <div class="side-user">
-                <div class="side-img" routerLink=""><img src="../../assets/img/logo.svg" alt="" style="width: 50px; height: 50x;">
+                <div class="side-img" routerLink=""><img src="../../assets/img/logo.svg" alt=""
+                        style="width: 50px; height: 50x;">
                 </div>
             </div>
 
@@ -98,7 +99,9 @@
                 <img src="../../assets/img/search.svg" alt="">
                 <input type="text" placeholder="Insira uma palavra chave">
             </div> -->
+            
             <div>
+                <span class="header-hello">Olá, Usuário!</span>
                 <a href=""><span>LogOut</span></a>
             </div>
         </header>
@@ -106,28 +109,58 @@
             <div class="info-grid">
                 <div class="card-info" *ngIf="userList[0]">
                     <h1>Conta</h1>
-                    
+
                     <!-- <tr *ngIf="userList[0]" style="color: white;">
                         <td>{{ userList[0].idFuncionario }}</td>
                         <td>{{ userList[0].nomeFuncionario }}</td>
                         <td>{{ userList[0].loginFuncionario }}</td>
                         <td>{{ userList[0].senhFuncionario }}</td>
                         </tr> -->
-                    <span>Nome Completo:</span> 
-                    <span style="padding-left: 2rem;"> {{ userList[0].nomeFuncionario }} {{ userList[0].sobrenomeFuncionario }} </span><br>
-                    <span>Email:</span> 
+                    <span>Nome Completo:</span>
+                    <span style="padding-left: 2rem;"> {{ userList[0].nomeFuncionario }} {{
+                        userList[0].sobrenomeFuncionario }} </span><br>
+                    <span>Email:</span>
                     <span style="padding-left: 6rem;">{{ userList[0].loginFuncionario }}</span><br>
-                    <!-- <span>Senha:</span> 
-                    <input id="psswd" style="padding-left: 10px; margin-left: 70px;" type="password"> -->
-                    <!-- <div style="text-align: center;">
+                    <span>Telefone:</span>
+                    <span style="padding-left: 6rem;">{{ userList[0].loginFuncionario }}</span><br>
+                    <span>Senha:</span> 
+                    <input id="psswd" style="padding-left: 10px; margin-left: 70px;" type="password">
+                    <span>Confirmar senha:</span> 
+                    <input id="psswd" style="padding-left: 10px; margin-left: 70px;" type="password">
+                    
+                    <div class="btn-center" style="margin-top: 40px;">
                         <button class="btn-salvar">Salvar</button>
-                    </div> -->
+                    </div>
                 </div>
+
                 <div class="card-faq">
-                    <h2>Tem alguma dúvida!?</h2>
-                    <span>+11 3444-9811</span><br>
-                    <span>Contato@dimesion.com.br</span><br>
-                  
+                    <h2>Configurações da máquina</h2>
+                    <!-- <span>+11 3444-9811</span><br>
+                    <span>Contato@dimesion.com.br</span><br> -->
+                    <div class="esquerdo" *ngIf="configList[0]">
+                        <tr *ngFor="let value of configList">
+                            <!-- <td>{{ value.idRegistro }}</td>
+                            <td>{{ value.nomeComponente }}</td>
+                            <td>{{ value.data }}</td>
+                            <td>{{ value.dadosColetados }}</td>
+                            <td>
+                                <button type="button" class="btn btn-light mr-1">Check</button>
+                            </td> -->
+                        </tr>
+                        <h3>Id Máquina</h3>
+                        <p>{{ configList[0].idComponente }}</p>
+                        <h3>Sistema Operacional</h3>
+                        <p>{{ configList[0].so }}</p>
+                        <h3>Processador</h3>
+                        <p>{{ configList[0].processador }}</p>
+                        <h3>Placa de Vídeo</h3>
+                        <p>{{ configList[0].placaVideo }}</p>
+
+                        <div class="btn-center">
+                            <button class="btn-salvar">Salvar</button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </main>

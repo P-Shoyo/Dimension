@@ -134,6 +134,11 @@ header a {
     color: #ebe7e1;
 }
 
+.header-hello {
+    color: #ebe7e1;
+    margin-right: 50px;
+}
+
 .menu-toggler {
     height: 45px;
     width: 45px;
@@ -214,15 +219,6 @@ main {
     margin-left: -100%;
 }
 
-.filtro {
-    padding: 20px;
-}
-
-.filtro span {
-    position: absolute;
-    font-size: 20px;
-}
-
 details {
     position: relative;
     width: 300px;
@@ -280,36 +276,6 @@ details[open] summary:after {
     transform: rotate(-45deg) translate(0%, 0%);
 }
 
-.filtro-ul {
-    width: 100%;
-    background: #202020;
-    position: absolute;
-    top: calc(100% + .5rem);
-    left: 0;
-    padding: 1rem;
-    margin: 0;
-    box-sizing: border-box;
-    border-radius: 5px;
-    max-height: 200px;
-    overflow-y: auto;
-}
-
-.filtro-li {
-    margin: 0;
-    padding: 1rem 0;
-    color: #ebe7e1;
-    border-bottom: 1px solid #ccc;
-}
-
-.filtro-li :first-child {
-    padding-top: 0;
-}
-
-.filtro-li :last-child {
-    padding-bottom: 0;
-    border-bottom: none;
-}
-
 .btn-relatorio {
     color: #202020;
     background-color: #ebe7e1;
@@ -358,25 +324,21 @@ details[open] summary:after {
     border: 2px solid #202020;
     width: 100%;
     border-radius: 10px;
-    margin-top: .8rem;
+    margin-top: .8rem;    
+    /* height: 95%; */
+
 }
 
-.chart-cpu, .chart-gpu {
+.chart3 {
     border: 2px solid #202020;
-    width: 50%;
-    border-radius: 10px;
-    margin-top: .8rem;
+    width: 100%;
+    border-radius: 10px; 
 }
 
-.chart-dis, .chart-gpu {
+.chart4 {
     border: 2px solid #202020;
-    width: 50%;
-    border-radius: 10px;
-    margin-top: .8rem;
-}
-
-.chart-disco {
-    grid-area: disco;
+    width: 100%;
+    border-radius: 10px;  
 }
 
 .chart-cpu {
@@ -702,13 +664,7 @@ details[open] summary:after {
         margin-top: 0;
         margin-left: 0;
     }
-    .filtro {
-        padding: 40px;
-    }
-    .filtro span {
-        position: absolute;
-        font-size: 20px;
-    }
+    
     details {
         padding-top: 20px;
     }

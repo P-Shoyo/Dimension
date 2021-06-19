@@ -9,12 +9,14 @@ import { SharedService } from '../shared.service';
 export class ConfiguracoesComponent implements OnInit {
 
   userList: any[];
+  configList: any[];
 
   constructor (private service:SharedService) { }
 
   ngOnInit() {
 
     this.refreshDashList();
+    this.refreshConfigList();
 
     // this.service.getAllUsuarios().subscribe(data => {
     //   this.userList = data;
@@ -26,6 +28,12 @@ export class ConfiguracoesComponent implements OnInit {
   refreshDashList() {
     this.service.getAllUsuarios().subscribe(data => {
       this.userList = data;
+    });
+  }
+
+  refreshConfigList() {
+    this.service.getConfigList().subscribe(data => {
+      this.configList = data;
     });
   }
 

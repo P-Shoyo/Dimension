@@ -4,7 +4,6 @@
         <div class="force-overflow"></div>
     </div>
 
-
     <input type="checkbox" id="menu-toggle">
     <div class="sidebar">
         <div class="sidemenu">
@@ -100,18 +99,17 @@
             <label for="menu-toggle" class="menu-toggler">
                 <span><img src="../../../assets/img/menu.svg" alt=""></span>
             </label>
-            <!-- <div class="search">
-                <img src="../../../assets/img/search.svg" alt="">
-                <input type="text" placeholder="Insira uma palavra chave">
-            </div> -->
             <div>
+                <span class="header-hello">Olá, Usuário!</span>
                 <a href=""><span>LogOut</span></a>
             </div>
         </header>
-
-        <main class="overview">
-            <div class="esquerdo" *ngIf="DashList[0]">
-                <!-- <tr *ngFor="let value of DashList">
+        <main class="overview">            
+            <div class="overview-title">
+                <h3>Máquina ID: 1</h3>
+            </div>
+            <!-- <div class="esquerdo" *ngIf="DashList[0]">
+                <tr *ngFor="let value of DashList">
                     <td>{{ value.idRegistro }}</td>
                     <td>{{ value.nomeComponente }}</td>
                     <td>{{ value.data }}</td>
@@ -119,7 +117,7 @@
                     <td>
                         <button type="button" class="btn btn-light mr-1">Check</button>
                     </td>
-                </tr> -->
+                </tr>
                 <h1>Informações</h1>
                 <h3>Id Máquina</h3>
                 <p>{{ DashList[0].idComponente }}</p>
@@ -127,15 +125,48 @@
                 <p>{{ DashList[0].so }}</p>
                 <h3>Processador</h3>
                 <p>{{ DashList[0].processador }}</p>
-                <!-- <h3>Tempo de Execução</h3>
-                <p>Dias: 0 --- 1:00:00 </p> -->
                 <h3>Placa de Vídeo</h3>
                 <p>{{ DashList[0].placaVideo }}</p>
+            </div> -->
+            <div class="chart-grid">
+                <!-- botão lateral no menu esquerdo q mostra ja pronto os html
+                     dos graficos e os ID de maquinas pegand ono botao -->
+                <div class="chart-disco">
+                    <div class="chart-head">
+                        <h5>Memória de RAM</h5>
+                    </div>
+                    <canvas id="canvasRAM" height="300px" width="300px"></canvas>
+                    <span class="stats">Status: (value.status)</span>
+                </div>
+
+                <div class="chart-ram">
+                    <div class="chart-head">
+                        <h5>Placa de Vídeo</h5>
+                    </div>
+                    <canvas id="canvasGPU" height="300px" width="300px"></canvas>
+                    <span class="stats">Status: (value.status)</span>
+                </div>
+
+                <div class="chart3">
+                    <div class="chart-head">
+                        <h5>CPU</h5>
+                    </div>
+                    <canvas id="canvasProcessador" height="300px" width="300px"></canvas>
+                    <span class="stats">Status: (value.status)</span>
+                </div>
+
+                <div class="chart4">
+                    <div class="chart-head">
+                        <h5>Disco</h5>
+                    </div>
+                    <canvas id="canvasDisco" height="300px" width="300px"></canvas>
+                    <span class="stats">Status: (value.status)</span>
+                </div>
             </div>
-            <div class="direito">
+            <!-- <div class="direito">
                 <h3>Graficos em risco:</h3>
                 <canvas id="canvas" height="350px" width="700px"></canvas>
-            </div>
+            </div> -->
         </main>
     </div>
 

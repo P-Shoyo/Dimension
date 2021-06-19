@@ -5,29 +5,37 @@ import { AppComponent } from './app.component';
 
 import { ShowDataComponent } from './show-data/show-data.component';
 import { UsuarioComponent } from './usuario/usuario.component';
-import { ShowUserComponent } from './usuario/show-user/show-user.component';
-import { AddEditUserComponent } from './usuario/add-edit-user/add-edit-user.component';
+import { LoginComponent } from './usuario/login/login.component';
+import { CadastroComponent } from './usuario/cadastro/cadastro.component';
+import { ForgotComponent } from './usuario/forgot/forgot.component';
+
+import { UserService } from './user.service';
 import { SharedService } from './shared.service';
 import { HomeComponent } from './home/home.component';
 import { OverviewComponent } from './overview/overview.component';
 import { ConfiguracoesComponent } from './configuracoes/configuracoes.component';
+import { NumberDirective } from './usuario/cadastro/numbers-only.directive';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { ChartsModule } from 'ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ShowDataComponent,
     UsuarioComponent,
-    ShowUserComponent,
-    AddEditUserComponent,
+    LoginComponent,
+    CadastroComponent,
+    ForgotComponent,
     HomeComponent,
     OverviewComponent,
     ConfiguracoesComponent,
-    DashboardComponent
+    DashboardComponent,
+    ForgotComponent,
+    NumberDirective 
   ],
   imports: [
     BrowserModule,
@@ -37,7 +45,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ReactiveFormsModule,
     ChartsModule
   ],
-  providers: [SharedService],
+  providers: [SharedService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,149 @@
+<div>
+
+  <body>
+    <img src="../../assets/img/Conexaoum.png" alt="" class="conexao1">
+    <img src="../../assets/img/Conexaodois.png" alt="" class="conexao2">
+
+    <div class="container">
+      <img routerLink="" src="../../assets/img/logo.png" alt="" class="logologin">
+
+
+      <div class="login">
+        <h1 class="titulo space-around">Cadastre-se:</h1>
+        <form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
+          <!-- <div *ngIf="(nomeFuncionario.invalid && nomeFuncionario.touched) || nomeFuncionario.dirty">
+            <small *ngIf="nomeFuncionario.errors?.required" class="text-danger">Digite um nome</small>
+          </div> -->
+          <input 
+            type="text"
+            #nomeFuncionario ="ngModel"
+            [(ngModel)]="userService.selectedUser.nomeFuncionario"
+            name="nomeFuncionario"
+            placeholder="Nome"
+            class="form-control" 
+            >
+
+          <input 
+            type="text"
+            #sobrenomeFuncionario ="ngModel"
+            [(ngModel)]="userService.selectedUser.sobrenomeFuncionario"
+            name="Sobrenome"
+            placeholder="Sobrenome"
+            class="form-control" 
+            >
+
+          <!-- <input 
+            type="text"
+            #phone ="ngModel"
+            [(ngModel)]="userService.selectedUser.phone"
+            name="phone"
+            placeholder="Telefone"
+            > -->
+
+          <input 
+            type="text"
+            #loginFuncionario ="ngModel"
+            [(ngModel)]="userService.selectedUser.loginFuncionario"
+            name="loginFuncionario"
+            placeholder="Email"
+            class="form-control" 
+            >
+
+          <input 
+            type="password"
+            #senhaFuncionario ="ngModel"
+            [(ngModel)]="userService.selectedUser.senhaFuncionario"
+            name="senhaFuncionario"
+            placeholder="Senha"
+            class="form-control" 
+            >
+
+          <input
+          type="submit"
+          value="Cadastrar"
+          >
+
+          <div class="success" *ngIf="showSuccesMessage">
+            Cadastro realizado com sucesso!
+          </div>
+
+          <div class="alert" *ngIf="showSuccesMessage">
+            {{serverErrorMessage}}
+          </div>
+
+        </form>
+        <!-- <form [formGroup]="register" style="text-align: -webkit-center;">
+          <div *ngIf="(name.invalid && name.touched) || name.dirty">
+            <small *ngIf="name.errors?.required" class="text-danger">Digite o seu nome</small>
+          </div>
+          <input 
+            [class.is-invalid] = "register.get('name').invalid && register.get('name').touched"
+            type="name" 
+            class="form-control" 
+            formControlName="name"
+            placeholder="Nome:"      
+            >
+
+            <div *ngIf="(lastName.invalid && lastName.touched) || lastName.dirty">
+              <small *ngIf="lastName.errors?.required" class="text-danger">Digite o seu sobrenome</small>
+            </div>
+            <input 
+              [class.is-invalid] = "register.get('lastName').invalid && register.get('lastName').touched"
+              type="lastName" 
+              class="form-control" 
+              formControlName="lastName"
+              placeholder="Sobrenome:"      
+              >
+            
+            <div *ngIf="(phone.invalid && phone.touched) || phone.dirty">
+              <small *ngIf="phone.errors?.required" class="text-danger">Digite um número de telefone</small>
+              <small *ngIf="phone.errors?.pattern" class="text-danger">Por favor, digite um telefone válido</small>
+            </div>
+            <input 
+              [class.is-invalid] = "register.get('phone').invalid && register.get('phone').touched"
+              type="phone" 
+              class="form-control" 
+              formControlName="phone"
+              placeholder="Telefone:" 
+              numbersOnly     
+              >
+
+            <div *ngIf="(email.invalid && email.touched) || email.dirty">
+            <small *ngIf="email.errors?.required" class="text-danger">Digite um e-mail</small>
+            <small *ngIf="email.errors?.pattern" class="text-danger">Por favor, digite um email válido</small>
+          </div>
+          <input 
+            [class.is-invalid] = "register.get('email').invalid && register.get('email').touched"
+            type="email" 
+            class="form-control" 
+            formControlName="email"
+            placeholder="E-mail:"      
+            >
+
+            <div *ngIf="(password.invalid && password.touched) || password.dirty">
+              <small *ngIf="password.errors?.required" class="text-danger">Digite uma senha</small>
+            </div>
+            <input 
+              [class.is-invalid] = "register.get('password').invalid && register.get('password').touched"
+              type="password" 
+              class="form-control" 
+              formControlName="password"
+              placeholder="Senha:"      
+              >
+
+          <button class="button" [disabled]="register.invalid">Cadastrar</button>
+
+          <a routerLink="/forgot">
+            <p style="text-align: center; margin-top: 20px;">Esqueceu sua senha?</p>
+          </a>
+          <p style="text-align: center;">
+            <span>Já tem uma conta?</span>
+            <a routerLink="/login"> Entre aqui</a>
+          </p>
+
+        </form> -->
+
+      </div>
+    </div>
+  </body>
+</div>

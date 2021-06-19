@@ -47,12 +47,12 @@ export class ShowDataComponent implements OnInit {
                       : '#ff2020'                    
                 }, 
                   fill: false
-                // }, {
-                //   type: 'line',
-                //   label: 'Perigo',
-                //   data: [85,85,85,85,85,85,85,85,85,85],
-                //   borderColor: '#f88',
-                //   fill: false   
+                }, {
+                  type: 'line',
+                  label: 'Perigo',
+                  data: [85,85,85,85,85,85,85,85,85,85],
+                  borderColor: '#f88',
+                  fill: false   
                 },
               ]
             },
@@ -121,7 +121,7 @@ export class ShowDataComponent implements OnInit {
             }
           })
         })
-  
+        
         this.service.getRegistroPlacaList()
         .subscribe(res => {
           console.log(res);

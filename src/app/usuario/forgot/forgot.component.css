@@ -30,16 +30,58 @@ input{
   height: 40px;
   width: 300px;
   background: #6A6C6F;
-  text-align: center;
   font-size: 20px;
   color: #fff;
   border-radius: 100px;
   cursor: pointer;
   margin-top: 20px;
   text-align: center;
-  margin-left: 3%;
+  align-self: center;
 }
 
 button {
   display: block;
+}
+
+.container {
+  display: flex;
+  flex-flow: column;
+  padding-left: 140px;
+}
+
+.conexao1 {
+  width: 200px;
+  display: block;
+  float: right;
+  flex-flow: row;
+  display: flex;
+}
+
+.conexao2 {
+  width: 400px;
+  position: absolute;
+  top: 77%;
+  display: block;
+  float: left;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.logologin {
+  display: flex;
+  flex-direction: column;
+  height: 60px;
+  width: 40px;
+  align-self: center;
+  cursor: pointer;
+}
+
+.link {
+  text-align: center;
 }

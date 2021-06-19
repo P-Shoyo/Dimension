@@ -134,6 +134,11 @@ header a {
     color: #ebe7e1;
 }
 
+.header-hello {
+    color: #ebe7e1;
+    margin-right: 50px;
+}
+
 .menu-toggler {
     height: 45px;
     width: 45px;
@@ -181,7 +186,6 @@ main {
 
 .esquerdo {
     padding: 20px;
-    margin-top: 50px;
 }
 
 .esquerdo h1 {
@@ -212,15 +216,6 @@ main {
 .direito h1 {
     margin-top: 50%;
     margin-left: -100%;
-}
-
-.filtro {
-    padding: 20px;
-}
-
-.filtro span {
-    position: absolute;
-    font-size: 20px;
 }
 
 details {
@@ -278,36 +273,6 @@ summary:focus {
 
 details[open] summary:after {
     transform: rotate(-45deg) translate(0%, 0%);
-}
-
-.filtro-ul {
-    width: 100%;
-    background: #202020;
-    position: absolute;
-    top: calc(100% + .5rem);
-    left: 0;
-    padding: 1rem;
-    margin: 0;
-    box-sizing: border-box;
-    border-radius: 5px;
-    max-height: 200px;
-    overflow-y: auto;
-}
-
-.filtro-li {
-    margin: 0;
-    padding: 1rem 0;
-    color: #ebe7e1;
-    border-bottom: 1px solid #ccc;
-}
-
-.filtro-li :first-child {
-    padding-top: 0;
-}
-
-.filtro-li :last-child {
-    padding-bottom: 0;
-    border-bottom: none;
 }
 
 .btn-relatorio {
@@ -443,6 +408,11 @@ details[open] summary:after {
     background-color: #ebe7e1;
 }
 
+.btn-center {
+    display: flex;
+    place-content: center;
+}
+
 .card-faq {
     background-color: #202020;
     color: #ebe7e1;
@@ -451,12 +421,11 @@ details[open] summary:after {
     border-radius: 10px;
     margin-left: 105px;
     padding: 20px;
-    padding-top: 80px;
-    /* margin-top: .8rem; */
+    padding-top: 30px;
 }
 
 .card-faq h2 {
-    padding: 1rem 0 1rem 3rem;
+    padding: 0rem 0 0rem 1rem;
 }
 
 .card-faq span {
@@ -677,12 +646,12 @@ details[open] summary:after {
         margin-top: 50px;
     }
     .esquerdo h1 {
-        font-size: 50px;
-        margin-bottom: 40px;
+        font-size: 20px;
+        /* margin-bottom: 30px; */
     }
     .esquerdo h3 {
         padding: 20px;
-        font-size: 25px;
+        font-size: 18px;
     }
     .esquerdo p {
         color: #777676;
@@ -699,13 +668,6 @@ details[open] summary:after {
     .direito h1 {
         margin-top: 0;
         margin-left: 0;
-    }
-    .filtro {
-        padding: 40px;
-    }
-    .filtro span {
-        position: absolute;
-        font-size: 20px;
     }
     details {
         padding-top: 20px;

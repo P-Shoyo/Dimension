@@ -102,55 +102,42 @@
                 <input type="text" placeholder="Insira uma palavra chave">
             </div> -->
             <div>
+                <span class="header-hello">Olá, Usuário!</span>
                 <a href=""><span>LogOut</span></a>
             </div>
+            
         </header>
 
         <main>
-            <div class="header-graficos">
-                <!-- <div class="filtro">
-                    <span>Filtro:</span>
-                    <details>
-                        <summary>Escolha</summary>
-                        <ul class="filtro-ul">
-                            <li class="filtro-li">CPU</li>
-                            <li class="filtro-li">Disco</li>
-                            <li class="filtro-li">Memoria RAM</li>
-                        </ul>
-                    </details>
-                </div> -->
-                <!-- <div class="document">
-                    <button class="btn-relatorio" onclick="imprimir()">Imprimir relatório</button>
-                    <img src="../../../assets/img/Vector.svg" alt="">
-                </div> -->
-            </div>
+
             <div class="chart-grid">
+
                 <div class="chart-disco">
                     <div class="chart-head">
                         <h3>Memória de RAM</h3>
                     </div>
-
-                    <canvas id="canvasRAM" height="350px" width="700px"></canvas>
-                    <!-- <div id="canvas" style="height: 350px;"></div> -->
+                    <canvas id="canvasRAM" height="300px" width="700px"></canvas>
                 </div>
+
                 <div class="chart-ram">
                     <div class="chart-head">
                         <h3>Placa de Vídeo</h3>
                     </div>
-                    <canvas id="canvasGPU" height="350px" width="700px"></canvas>
+                    <canvas id="canvasGPU" height="300px" width="700px"></canvas>
                 </div>
-                <div class="chart-cpu">
+
+                <div class="chart3">
                     <div class="chart-head">
                         <h3>CPU</h3>
                     </div>
-                    <!-- <canvas id="canvasProcessador" height="350px" width="1400px"></canvas> -->
-                    <canvas id="canvasProcessador" height="350px" width="700px"></canvas>
+                    <canvas id="canvasProcessador" height="300px" width="700px"></canvas>
                 </div>
-                <div class="chart-dis">
+
+                <div class="chart4">
                     <div class="chart-head">
                         <h3>Disco</h3>
                     </div>
-                    <canvas id="canvasDisco" height="350px" width="700px"></canvas>
+                    <canvas id="canvasDisco" height="300px" width="700px"></canvas>
                 </div>
             </div>
         </main>

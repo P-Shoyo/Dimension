@@ -1,0 +1,42 @@
+<div class="login">
+  <h1 class="titulo space-around">Faça seu login:</h1>
+  <!-- <form [formGroup]="login" #f="ngForm" (ngSubmit)="onSubmit(f)"> -->
+  <form [formGroup]="loginForm" style="text-align: -webkit-center;" (ngSubmit)="onSubmit(loginForm)">
+    <div *ngIf="(loginForm.controls.email.invalid && loginForm.controls.email.touched) || loginForm.controls.email.dirty">
+      <small *ngIf="loginForm.controls.email.errors?.required" class="text-danger">Digite um e-mail</small>
+      <small *ngIf="loginForm.controls.email.errors?.pattern" class="text-danger">Por favor, digite um email válido</small>
+    </div>
+    <input 
+      [class.is-invalid] = "loginForm.get('email').invalid && loginForm.get('email').touched"
+      type="email" 
+      class="form-control" 
+      formControlName="email"
+      placeholder="E-mail:"      
+      >
+
+    <div *ngIf="(loginForm.controls.password.invalid && loginForm.controls.password.touched) || loginForm.controls.password.dirty">
+      <small *ngIf="loginForm.controls.password.errors?.required" class="text-danger">Digite uma senha</small>
+    </div>
+      <input 
+      [class.is-invalid] = "loginForm.get('password').invalid && loginForm.get('password').touched"
+      type="password" 
+      class="form-control" 
+      formControlName="password"
+      placeholder="Senha:"      
+      >
+      
+    <button class="button" [disabled]="loginForm.invalid">Login</button>
+    
+    <a routerLink="/forgot">
+      <p style="text-align: center; margin-top: 20px;">Esqueceu sua senha?</p>
+    </a>
+    <p style="text-align: center;"> 
+      <span>Não tem uma conta?</span> 
+      <a routerLink="/cadastro"> Cadastre-se</a>
+    </p>
+  </form>
+</div>
+
+
+
+

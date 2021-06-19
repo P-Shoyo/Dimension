@@ -1,0 +1,46 @@
+<div>
+
+  <body>
+    <img src="../../assets/img/Conexaoum.png" alt="" class="conexao1">
+    <img src="../../assets/img/Conexaodois.png" alt="" class="conexao2">
+
+    <div class="container">
+      <img routerLink="" src="../../assets/img/logo.png" alt="" class="logologin">
+
+
+      <div class="login">
+        <h1 class="titulo space-around">Esqueceu sua senha?</h1>
+        <label style="text-align: center;">Digite o seu e-mail e enviaremos</label>
+        <label style="text-align: center;"> a você como recuperar sua senha:</label>
+        <!-- <input class="space-around" type="text" placeholder="E-mail: "> -->
+        <form [formGroup]="forgot" style="text-align: -webkit-center;">
+          <div *ngIf="(email.invalid && email.touched) || email.dirty">
+            <small *ngIf="email.errors?.required" class="text-danger">Digite um e-mail</small>
+            <small *ngIf="email.errors?.pattern" class="text-danger">Por favor, digite um email válido</small>
+          </div>
+          <input 
+            [class.is-invalid] = "forgot.get('email').invalid && forgot.get('email').touched"
+            type="email" 
+            class="form-control" 
+            formControlName="email"
+            placeholder="E-mail:"      
+            >
+        </form>
+
+        
+
+        <!-- <button class="button" (click)="logar()">Login</button> -->
+        <button class="button" [disabled]="forgot.invalid">Enviar</button>
+
+        <p style="text-align: center; margin-top: 20px;">
+          <span>Não tem uma conta?</span>
+          <a routerLink="/cadastro"> Cadastre-se aqui</a>
+        </p>
+        <p style="text-align: center;">
+          <span>Já tem uma conta?</span>
+          <a routerLink="/login"> Entre aqui</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</div>

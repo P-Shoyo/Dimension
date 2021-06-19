@@ -34,6 +34,7 @@
   height: 60px;
   width: 40px;
   align-self: center;
+  cursor: pointer;
 }
 
 .link {
