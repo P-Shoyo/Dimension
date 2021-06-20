@@ -18,7 +18,10 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
+  readonly apiUrl = 'https://dimensionapi.azurewebsites.net/api';
+
   postUser (user: User) {
-    return this.http.post(environment.apiUrl + '/usuario', user)
+    // return this.http.post(environment.apiUrl + '/usuario', user)
+    return this.http.post(this.apiUrl + '/usuario', user)
   }
 }

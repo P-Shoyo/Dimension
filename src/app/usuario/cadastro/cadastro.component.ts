@@ -65,6 +65,9 @@ export class CadastroComponent implements OnInit {
       nomeFuncionario: new FormControl( this.userService.selectedUser.nomeFuncionario, [
         Validators.required
       ]),
+      sobrenomeFuncionario: new FormControl( this.userService.selectedUser.sobrenomeFuncionario, [
+        Validators.required
+      ]),
       loginFuncionario: new FormControl('',[
       Validators.required,
       Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
