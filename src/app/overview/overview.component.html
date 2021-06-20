@@ -8,7 +8,8 @@
     <div class="sidebar">
         <div class="sidemenu">
             <div class="side-user">
-                <div class="side-img" routerLink=""><img src="../../../assets/img/logo.svg" alt="" style="width: 50px; height: 50x;"></div>
+                <div class="side-img" routerLink=""><img src="../../../assets/img/logo.svg" alt=""
+                        style="width: 50px; height: 50x;"></div>
             </div>
 
             <ul>
@@ -104,7 +105,7 @@
                 <a href=""><span>LogOut</span></a>
             </div>
         </header>
-        <main class="overview">            
+        <main class="overview">
             <div class="overview-title">
                 <h3>Máquina ID: 1</h3>
             </div>
@@ -139,22 +140,24 @@
                     <span class="stats">Status: (value.status)</span>
                 </div>
 
-                <div class="chart-ram">
-                    <div class="chart-head">
-                        <h5>Placa de Vídeo</h5>
+                <div class="video-cpu">
+                    <div class="chart-ram">
+                        <div class="chart-head">
+                            <h5>Placa de Vídeo</h5>
+                        </div>
+                        <canvas id="canvasGPU" height="300px" width="300px"></canvas>
+                        <span class="stats">Status: (value.status)</span>
                     </div>
-                    <canvas id="canvasGPU" height="300px" width="300px"></canvas>
-                    <span class="stats">Status: (value.status)</span>
-                </div>
 
-                <div class="chart3">
-                    <div class="chart-head">
-                        <h5>CPU</h5>
+
+                    <div class="chart3">
+                        <div class="chart-head">
+                            <h5>CPU</h5>
+                        </div>
+                        <canvas id="canvasProcessador" height="300px" width="300px"></canvas>
+                        <span class="stats">Status: (value.status)</span>
                     </div>
-                    <canvas id="canvasProcessador" height="300px" width="300px"></canvas>
-                    <span class="stats">Status: (value.status)</span>
                 </div>
-
                 <div class="chart4">
                     <div class="chart-head">
                         <h5>Disco</h5>
@@ -162,7 +165,9 @@
                     <canvas id="canvasDisco" height="300px" width="300px"></canvas>
                     <span class="stats">Status: (value.status)</span>
                 </div>
+
             </div>
+
             <!-- <div class="direito">
                 <h3>Graficos em risco:</h3>
                 <canvas id="canvas" height="350px" width="700px"></canvas>
