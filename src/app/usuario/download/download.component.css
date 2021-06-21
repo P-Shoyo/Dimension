@@ -26,6 +26,11 @@ input{
   background: #eeedeb;
 }
 
+a{
+  text-decoration: none;
+  color: #fff;
+}
+
 .button{    
   height: 40px;
   width: 300px;
@@ -37,10 +42,12 @@ input{
   margin-top: 20px;
   text-align: center;
   align-self: center;
+
 }
 
 button {
   display: block;
+  color: #fff;
 }
 
 .container {
