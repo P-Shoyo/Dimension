@@ -15,11 +15,11 @@ import { HomeComponent } from './home/home.component';
 import { OverviewComponent } from './overview/overview.component';
 import { ConfiguracoesComponent } from './configuracoes/configuracoes.component';
 import { NumberDirective } from './usuario/cadastro/numbers-only.directive';
-import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { ChartsModule } from 'ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DownloadComponent } from './usuario/download/download.component';
 
 
 @NgModule({
@@ -33,9 +33,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     OverviewComponent,
     ConfiguracoesComponent,
-    DashboardComponent,
     ForgotComponent,
-    NumberDirective 
+    NumberDirective,
+    DownloadComponent
   ],
   imports: [
     BrowserModule,

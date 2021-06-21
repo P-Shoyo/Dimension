@@ -14,6 +14,7 @@ export class ShowDataComponent implements OnInit {
   chart: any;
   showHeader = false;
   interval: NodeJS.Timer;
+  user: string;
   constructor (private service:SharedService) { }
 
   DashList:any = [];
@@ -22,8 +23,12 @@ export class ShowDataComponent implements OnInit {
     // get data from BD
     // this.refreshDashList();
 
+    var retrievedLogin = localStorage.getItem('funcionario');
+    var idFuncionario = JSON.parse(retrievedLogin).idFuncionario;
+    this.user = JSON.parse(retrievedLogin).nomeFuncionario;
+
     this.interval = setInterval(() => {
-      this.service.getRegistroRamList()
+      this.service.getRegistroRamList(9)
         .subscribe(res => {
           console.log(res);
   

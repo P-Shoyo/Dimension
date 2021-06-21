@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from 'src/app/user';
 import { UserService } from 'src/app/user.service';
 
@@ -12,7 +13,10 @@ import { UserService } from 'src/app/user.service';
 })
 export class CadastroComponent implements OnInit {
 
-  constructor(public userService: UserService) { }
+  constructor(
+    public userService: UserService,
+    public router: Router
+    ) { }
 
   // register = new FormGroup ({
   //   nomeFuncionario: new FormControl('', [
@@ -80,6 +84,9 @@ export class CadastroComponent implements OnInit {
         this.showSuccesMessage = true;
         setTimeout(() => this.showSuccesMessage = false, 5000);
         this.resetForm(form);
+        //console.log(res);
+        // this.router.navigate(['overview']);
+        this.router.navigate(['download']);
       }
     )
   }

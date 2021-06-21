@@ -179,7 +179,7 @@ main {
 
 .overview {
     margin-top: calc(70px + .5rem);
-    padding: 3rem 4rem;
+    padding: 3rem 2rem;
     display: flex;
     justify-content: space-between;
 }
@@ -196,6 +196,12 @@ main {
     width: 270px;
     justify-content: space-between;
     /* padding: 20px; */
+}
+
+.id-maquina {
+    margin-top: 15px;
+    font-size: x-large;
+    margin-right: 10px;
 }
 
 .esquerdo {
@@ -326,7 +332,7 @@ details[open] summary:after {
 
 .chart-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     grid-template-areas: "disco ram" "cpu cpu";
     margin: 0rem 0rem;
@@ -336,46 +342,35 @@ details[open] summary:after {
     padding-left: 0;
 }
 
-.chart-disco{
-    height: 48%;
-}
+
 
 .chart-disco, .chart-ram {
     border: 2px solid #202020;
-    width: 50%;
+    width: 100%;
     border-radius: 10px;
     margin-top: .8rem;
 }
 
 .chart3 {
     border: 2px solid #202020;
-    width: 50%;
+    width: 100%;
     border-radius: 10px; 
+    height: 98%;
+    margin-top: 10px;
 }
 
 .chart4 {
     border: 2px solid #202020;
-    width: 50%;
+    width: 100%;
     border-radius: 10px; 
-    margin-top: -45%;
+    margin-top: 10px;
+   
 }
 
 .chart-ram {
     grid-area: ram;
 }
-/* 
-.chart3{
-    margin-top: -100px;
-} */
 
-.chart3{
-    margin-top: 20px;
-}
-
-.video-cpu{
-    margin-left: -350px;
-    width: 100%;
-}
 
 .chart-head {
     display: flex;
@@ -800,4 +795,3 @@ details[open] summary:after {
 #canvas {
     margin-top: 21px;
 }
-

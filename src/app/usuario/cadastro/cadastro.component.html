@@ -32,7 +32,7 @@
             type="text"
             #sobrenomeFuncionario ="ngModel"
             [(ngModel)]="userService.selectedUser.sobrenomeFuncionario"
-            name="Sobrenome"
+            name="sobrenomeFuncionario"
             placeholder="Sobrenome"
             class="form-control"
             required 
@@ -87,7 +87,7 @@
             Cadastro realizado com sucesso!
           </div>
 
-          <div class="alert-danger" *ngIf="showSuccesMessage">
+          <div class="alert alert-danger" *ngIf="showSuccesMessage">
             {{serverErrorMessage}}
           </div>
 

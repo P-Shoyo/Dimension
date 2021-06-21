@@ -24,8 +24,8 @@ export class SharedService {
     return this.http.get<any>(this.APIURL + '/registro');
   }
 
-  getRegistroRamList():Observable<any[]> {
-    return this.http.get<any>(this.APIURL + '/registro/GetRam');
+  getRegistroRamList(id: any):Observable<any[]> {
+    return this.http.get<any>(this.APIURL + '/registro/GetRam' + id);
   }
 
   getRegistroSoList():Observable<any[]> {
@@ -43,28 +43,6 @@ export class SharedService {
   getRegistroDiscoList():Observable<any[]> {
     return this.http.get<any>(this.APIURL + '/registro/GetDisco');
   }
-  
-  // method CRUD de usuarios
-  // login(model: any) {
-  //   return this.http.post(this.APIURL + 'usuario', model).pipe(
-  //     map((response: any) {
-  //       const user = response;
-  //       if (user.) {
-          
-  //       }
-  //     })
-  //   )
-  // }
-
-  // login(loginForm: LoginForm) {
-  //   return this.http.post<any>('api/usuario', { email: loginForm.email, password: loginForm}).pipe(
-  //     map((token) => {
-  //       console.log('token');
-  //       localStorage.setItem('token-test', token.access_token);
-  //       return token;
-  //     })
-  //   )
-  // }
 
   getUsuarioList():Observable<any[]> {
     return this.http.get<any>(this.APIURL + '/usuario');

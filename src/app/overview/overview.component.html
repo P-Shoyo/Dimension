@@ -101,37 +101,33 @@
                 <span><img src="../../../assets/img/menu.svg" alt=""></span>
             </label>
             <div>
-                <span class="header-hello">Olá, Usuário!</span>
+                <span class="header-hello">Bem vindo, {{ user }}</span>
                 <a href=""><span>LogOut</span></a>
             </div>
         </header>
-        <main class="overview">
-            <div class="overview-title">
-                <h3>Máquina ID: 1</h3>
-            </div>
-            <!-- <div class="esquerdo" *ngIf="DashList[0]">
-                <tr *ngFor="let value of DashList">
-                    <td>{{ value.idRegistro }}</td>
-                    <td>{{ value.nomeComponente }}</td>
-                    <td>{{ value.data }}</td>
-                    <td>{{ value.dadosColetados }}</td>
-                    <td>
-                        <button type="button" class="btn btn-light mr-1">Check</button>
-                    </td>
+        <main class="overview" *ngFor="let value of maquinasList">
+            <div class="overview-title" style="display: inline-flex;" *ngIf="maquinasList">
+                <!-- <tr *ngFor="let value of maquinasList"> -->
+                <!-- <tr>
+                    <h3 style="font-size: x-large;">Máquina ID: {{ value.idMaquina }}  </h3>
                 </tr>
-                <h1>Informações</h1>
-                <h3>Id Máquina</h3>
-                <p>{{ DashList[0].idComponente }}</p>
-                <h3>Sistema Operacional</h3>
-                <p>{{ DashList[0].so }}</p>
-                <h3>Processador</h3>
-                <p>{{ DashList[0].processador }}</p>
-                <h3>Placa de Vídeo</h3>
-                <p>{{ DashList[0].placaVideo }}</p>
+                <div class="alert alert-danger" *ngIf="showAlertMessage" style="margin-left: 20px;">
+                     {{ showComponent }}
+                </div> -->
+            </div>
+            <!-- <div class="esquerdo" *ngIf="maquinasList[0]">
+                <tr *ngFor="let value of maquinasList">
+                    <td>{{ value.idMaquina }}</td>
+                </tr>
             </div> -->
+            <tr>
+                <h3  class="id-maquina">Máquina  </h3>
+                <h3 style="font-size:medium ;"> ID {{ value.idMaquina }}</h3>
+                <div class="alert alert-danger" *ngIf="showAlertMessage" style="width: 100px; margin-top: 20px; font-size: small;">
+                     {{ showComponent }}
+                </div>
+            </tr>
             <div class="chart-grid">
-                <!-- botão lateral no menu esquerdo q mostra ja pronto os html
-                     dos graficos e os ID de maquinas pegand ono botao -->
                 <div class="chart-disco">
                     <div class="chart-head">
                         <h5>Memória de RAM</h5>
@@ -140,7 +136,7 @@
                     <span class="stats">Status: (value.status)</span>
                 </div>
 
-                <div class="video-cpu">
+          
                     <div class="chart-ram">
                         <div class="chart-head">
                             <h5>Placa de Vídeo</h5>
@@ -157,7 +153,7 @@
                         <canvas id="canvasProcessador" height="300px" width="300px"></canvas>
                         <span class="stats">Status: (value.status)</span>
                     </div>
-                </div>
+            
                 <div class="chart4">
                     <div class="chart-head">
                         <h5>Disco</h5>
@@ -167,6 +163,43 @@
                 </div>
 
             </div>
+            <!-- <div class="chart-grid">-
+                <div class="chart-disco">
+                    <div class="chart-head">
+                        <h5>Memória RAM</h5>
+                    </div>
+                    <canvas id="canvasRAM" height="300px" width="300px"></canvas>
+                    <span class="stats">Status: {{statusMessageRam}}</span>
+                </div>
+
+                <div class="video-cpu">
+                    <div class="chart-ram">
+                        <div class="chart-head">
+                            <h5>Placa de Vídeo</h5>
+                        </div>
+                        <canvas id="canvasGPU" height="300px" width="300px"></canvas>
+                        <span class="stats">Status: {{statusMessagePlaca}}</span>
+                    </div>
+
+
+                    <div class="chart3">
+                        <div class="chart-head">
+                            <h5>CPU</h5>
+                        </div>
+                        <canvas id="canvasProcessador" height="300px" width="300px"></canvas>
+                        <span class="stats">Status: {{statusMessageCpu}}</span>
+                    </div>
+                </div>
+                <div class="chart4">
+                    <div class="chart-head">
+                        <h5>Disco</h5>
+                    </div>
+                    <canvas id="canvasDisco" height="300px" width="300px"></canvas>
+                    <span class="stats">Status: {{statusMessageDisco}}</span>
+                </div>
+
+            </div> -->
+            
 
             <!-- <div class="direito">
                 <h3>Graficos em risco:</h3>

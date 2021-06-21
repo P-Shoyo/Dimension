@@ -8,6 +8,7 @@ import { UsuarioComponent } from './usuario/usuario.component';
 // import { LoginComponent } from './usuario/login/login.component';
 import { CadastroComponent } from './usuario/cadastro/cadastro.component';
 import { ForgotComponent } from './usuario/forgot/forgot.component';
+import { DownloadComponent } from './usuario/download/download.component';
 
 import { OverviewComponent } from './overview/overview.component';
 import { ConfiguracoesComponent } from './configuracoes/configuracoes.component';
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: 'cadastro' , component:CadastroComponent},
   {path: 'login' , component:UsuarioComponent},
   {path: 'forgot' , component:ForgotComponent},
+  {path: 'download' , component: DownloadComponent},
   // {path: 'login' , component:LoginComponent},
 
   {path: 'overview', component:OverviewComponent},

@@ -1,5 +1,51 @@
 <div class="login">
   <h1 class="titulo space-around">Faça seu login:</h1>
+
+  <form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
+
+    <div *ngIf="(loginFuncionario.invalid && loginFuncionario.touched) || loginFuncionario.dirty">
+      <small *ngIf="loginFuncionario.errors?.required" class="text-danger">Digite um e-mail</small>
+      <small *ngIf="loginFuncionario.errors?.pattern" class="text-danger">Por favor, digite um email válido</small>
+    </div>
+    <input 
+      type="text"
+      #loginFuncionario ="ngModel"
+      [(ngModel)]="userService.selectedUser.loginFuncionario"
+      name="loginFuncionario"
+      placeholder="Email"
+      class="form-control" 
+      required
+      >
+
+    <div *ngIf="(senhaFuncionario.invalid && senhaFuncionario.touched) || senhaFuncionario.dirty">
+      <small *ngIf="senhaFuncionario.errors?.required" class="text-danger">Digite uma senha</small>
+    </div>
+    <input 
+      id="senhaFuncionario"
+      type="password"
+      #senhaFuncionario ="ngModel"
+      [(ngModel)]="userService.selectedUser.senhaFuncionario"
+      name="senhaFuncionario"
+      placeholder="Senha"
+      class="form-control" 
+      required
+      >
+
+    <button class="button" [disabled]="signUpForm.invalid">Entrar</button>
+
+    <a routerLink="/forgot">
+      <p style="text-align: center; margin-top: 20px;">Esqueceu sua senha?</p>
+    </a>
+    <p style="text-align: center;">
+      <span>Não tem uma conta?</span>
+      <a routerLink="/cadastro"> Cadastre-se</a>
+    </p>
+
+    <div class="alert alert-danger" *ngIf="!showSuccesMessage">
+      {{serverErrorMessage}}
+    </div>
+  </form>
+
   <!-- <form [formGroup]="login" #f="ngForm" (ngSubmit)="onSubmit(f)"> -->
   <!-- <form [formGroup]="loginForm" style="text-align: -webkit-center;" (ngSubmit)="onSubmit(loginForm)">
     <div *ngIf="(loginForm.controls.email.invalid && loginForm.controls.email.touched) || loginForm.controls.email.dirty">

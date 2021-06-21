@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chart from 'chart.js'
 import { SharedService } from 'src/app/shared.service';
+import { UserService } from '../user.service';
 
 
 @Component({
@@ -12,26 +13,65 @@ import { SharedService } from 'src/app/shared.service';
 export class OverviewComponent implements OnInit {
 
   chart: any;
-  DashList: any[];
+  maquinasList: any;
   interval: NodeJS.Timer;
+  showAlertMessage: boolean;
+  user: string;
+  
+  showComponent: string;
+  statusMessageRam: string;
+  statusMessagePlaca: string;
+  statusMessageDisco: string;
+  statusMessageCpu: string;
 
-  constructor(private service: SharedService) { }
+  
+  constructor(
+    private service: SharedService,
+    private userService: UserService) { }
+    
+    ngOnInit() {
+      
+    var retrievedLogin = localStorage.getItem('funcionario');
+    var idFuncionario = JSON.parse(retrievedLogin).idFuncionario;
+    this.user = JSON.parse(retrievedLogin).nomeFuncionario;
 
-  ngOnInit() {
+    //console.log('retrievedLogin: ', JSON.parse(retrievedLogin));
+      //res[0].idMaquina
+    this.userService.getMaquinas(idFuncionario)
+      .subscribe(res => { 
+        console.log(res);
+        this.maquinasList = res;
+      })
 
-    this.refreshDashList();
+
+    // this.refreshDashList();
+    this.showAlertMessage = false;
 
     this.interval = setInterval(() => {
-      this.service.getRegistroRamList()
+      // this.service.getRegistroRamList()
+      this.service.getRegistroRamList(2)
         .subscribe(res => {
           console.log(res);
+          
+          for (let i = 0; i < res.length; i++) {
+            const element = res[i];
+            // console.log(element);
+            if (element.dadosColetados < 85) {
+              this.statusMessageRam = "Normal"
+            } else {
+              this.statusMessageRam = "Perigo"
+              this.showAlertMessage = true;
+              this.showComponent = "Memória RAM"
+            }
+          }
 
           //let name = res[res.length-1].map(res => res[res.length-1].nomeComponente)
           let name = res.map(res => res.nomeComponente);
           // let data = res.map(res => res.data.split(" ")[0]);
           let hora = res.map(res => res.data.split(" ")[1]);
           let dado = res.map(res => res.dadosColetados);
-
+          
+          
           this.chart = new Chart('canvasRAM', {
             type: 'line',
             data: {
@@ -110,11 +150,23 @@ export class OverviewComponent implements OnInit {
               }
             }
           })
-    })
+      })
 
-    this.service.getRegistroPlacaList()
+      this.service.getRegistroPlacaList()
         .subscribe(res => {
-          console.log(res);
+          // console.log(res);
+
+          for (let i = 0; i < res.length; i++) {
+            const element = res[i];
+            // console.log(element);
+            if (element.dadosColetados < 80) {
+              this.statusMessagePlaca = "Normal";
+            } else {
+              this.statusMessagePlaca = "Perigo";
+              this.showAlertMessage = true;
+              this.showComponent = "Sua placa de vídeo está com temperatura acima do esperado";
+            }
+          }
   
            //let name = res[res.length-1].map(res => res[res.length-1].nomeComponente)
           let name = res.map(res => res.nomeComponente);
@@ -209,7 +261,19 @@ export class OverviewComponent implements OnInit {
   
         this.service.getRegistroCpuList()
         .subscribe(res => {
-          console.log(res);
+          // console.log(res);
+
+          for (let i = 0; i < res.length; i++) {
+            const element = res[i];
+            // console.log(element);
+            if (element.dadosColetados < 90) {
+              this.statusMessageCpu = "Normal"
+            } else {
+              this.statusMessageCpu = "Perigo"
+              this.showAlertMessage = true;
+              this.showComponent = "Sua CPU está com o uso acima do esperado";
+            }
+          }
   
            //let name = res[res.length-1].map(res => res[res.length-1].nomeComponente)
           let name = res.map(res => res.nomeComponente);
@@ -227,7 +291,7 @@ export class OverviewComponent implements OnInit {
                   data: dado,
                   borderColor: function(dado) {
                     return dado.dataset.data[dado.dataset.data.length-1] < 40 ? '#022cc22'                        
-                      : dado.dataset.data[dado.dataset.data.length-1] < 85 ? '#64bd36'
+                      : dado.dataset.data[dado.dataset.data.length-1] < 90 ? '#64bd36'
                       : '#ff2020'                    
                 },
                   fill: false
@@ -304,8 +368,19 @@ export class OverviewComponent implements OnInit {
 
         this.service.getRegistroDiscoList()
         .subscribe(res => {
-          console.log(res);
-  
+          // console.log(res);
+          
+          for (let i = 0; i < res.length; i++) {
+            const element = res[i];
+            // console.log(element);
+            if (element.dadosColetados < 900) {
+              this.statusMessageDisco = "Normal"
+            } else {
+              this.statusMessageDisco = "Perigo"
+              this.showAlertMessage = true;
+              this.showComponent = "Seu disco está perto do limite total";
+            }
+          }
            //let name = res[res.length-1].map(res => res[res.length-1].nomeComponente)
           let name = res.map(res => res.nomeComponente);
           // let data = res.map(res => res.data.split(" ")[0]);
@@ -322,7 +397,7 @@ export class OverviewComponent implements OnInit {
                   data: dado,
                   borderColor: function(dado) {
                     return dado.dataset.data[dado.dataset.data.length-1] < 40 ? '#022cc22'                        
-                      : dado.dataset.data[dado.dataset.data.length-1] < 85 ? '#64bd36'
+                      : dado.dataset.data[dado.dataset.data.length-1] < 90 ? '#64bd36'
                       : '#ff2020'                    
                 },
                   fill: false
@@ -396,15 +471,11 @@ export class OverviewComponent implements OnInit {
             }
           })
         })
-  }, 2000);
+    }, 2000);
 
-}
+  }
 
-refreshDashList() {
-  this.service.getConfigList().subscribe(data => {
-    this.DashList = data;
-  });
-}
   
+
 }
 
