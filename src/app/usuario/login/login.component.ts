@@ -43,30 +43,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
 
     this.showSuccesMessage = true;
-    // this.userService.getUser().subscribe(
-    //   data => {
-    //     // this.usersList = data;
-    //     console.log(data);
-    //     for (let i = 0; i < data["length"]; i++) {
-    //       const element = data[i];
-    //       if (element.loginFuncionario == this.userService.selectedUser.loginFuncionario) {
-    //         console.log('IGUAL');
-    //         this.router.navigate(['overview']);
-    //       } else if (!this.userService.selectedUser.loginFuncionario) {
-    //         console.log('VAZIO');            
-    //       }
-    //     }
-    //   }
-    // )
-
-    // this.loginForm = new FormGroup ({
-    //   email: new FormControl("", [
-    //     Validators.required,
-    //     Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
-    //   password: new FormControl("", [
-    //     Validators.required])
-    // })
-    
   }
 
   onSubmit(loginForm: NgForm) {
@@ -102,18 +78,12 @@ export class LoginComponent implements OnInit {
     this.userService.selectedUser = {
       nomeFuncionario: '',
       sobrenomeFuncionario: '',
-      // phone: '',
+      cpfFuncionario: '',
       loginFuncionario: '',
       senhaFuncionario: ''
     };
     loginForm.resetForm();
     this.serverErrorMessage='';
-  }  
-  // onSubmit(loginForm: NgForm) {
-  //   console.log(loginForm.value);
-  //   if (this.loginForm.invalid) {
-  //     return;
-  //   }
-  // }
+  } 
 }
 

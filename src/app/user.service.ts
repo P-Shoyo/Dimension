@@ -11,7 +11,7 @@ export class UserService {
   selectedUser: User = {
     nomeFuncionario: '',
     sobrenomeFuncionario: '',
-    // phone: '',
+    cpfFuncionario: '',
     loginFuncionario: '',
     senhaFuncionario: ''
   };

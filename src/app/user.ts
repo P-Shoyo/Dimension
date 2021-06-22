@@ -1,7 +1,7 @@
 export class User {
   nomeFuncionario: string;
   sobrenomeFuncionario: string;
-  // phone: string;
+  cpfFuncionario: string;
   loginFuncionario: string;
   senhaFuncionario: string;
 }

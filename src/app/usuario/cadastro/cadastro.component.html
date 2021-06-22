@@ -38,13 +38,18 @@
             required 
             >
 
-          <!-- <input 
-            type="text"
-            #phone ="ngModel"
-            [(ngModel)]="userService.selectedUser.phone"
-            name="phone"
-            placeholder="Telefone"
-            > -->
+            <div *ngIf="(cpfFuncionario.invalid && cpfFuncionario.touched) || cpfFuncionario.dirty">
+              <small *ngIf="cpfFuncionario.errors?.required" class="text-danger">Digite um CPF</small>
+            </div>
+            <input 
+              type="text"
+              #cpfFuncionario ="ngModel"
+              [(ngModel)]="userService.selectedUser.cpfFuncionario"
+              name="cpfFuncionario"
+              placeholder="CPF"
+              class="form-control"
+              required 
+              >
 
           <div *ngIf="(loginFuncionario.invalid && loginFuncionario.touched) || loginFuncionario.dirty">
             <small *ngIf="loginFuncionario.errors?.required" class="text-danger">Digite um e-mail</small>

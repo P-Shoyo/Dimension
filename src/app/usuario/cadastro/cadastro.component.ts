@@ -17,46 +17,6 @@ export class CadastroComponent implements OnInit {
     public router: Router
     ) { }
 
-  // register = new FormGroup ({
-  //   nomeFuncionario: new FormControl('', [
-  //     Validators.required]),
-  //   sobrenomeFuncionario: new FormControl('', [
-  //     Validators.required]),
-  //   phone: new FormControl('', [
-  //     Validators.required,
-  //     Validators.pattern("^[0-9]*$"),
-  //     Validators.minLength(10),
-  //     Validators.maxLength(11)]),
-    
-    
-  //   loginFuncionario: new FormControl('',[
-  //     Validators.required,
-  //     Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
-  //   senhaFuncionario: new FormControl('', [
-  //     Validators.required]),
-  //   }
-  // )
-
-  // get nomeFuncionario(){
-  //   return this.register.get('nomeFuncionario')
-  // }
-
-  // get sobrenomeFuncionario(){
-  //   return this.register.get('sobrenomeFuncionario')
-  // }
-
-  // get telefone(){
-  //   return this.register.get('telefone')
-  // }
-
-  // get loginFuncionario(){
-  //   return this.register.get('loginFuncionario')
-  // }
-
-  // get senhaFuncionario(){
-  //   return this.register.get('senhaFuncionario')
-  // }
-
   showSuccesMessage: boolean;
   serverErrorMessage: string;
 
@@ -71,9 +31,15 @@ export class CadastroComponent implements OnInit {
       sobrenomeFuncionario: new FormControl( this.userService.selectedUser.sobrenomeFuncionario, [
         Validators.required
       ]),
+      cpfFuncionario: new FormControl( this.userService.selectedUser.cpfFuncionario, [
+        Validators.required
+      ]),
       loginFuncionario: new FormControl('',[
       Validators.required,
       Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
+      senhaFuncionario: new FormControl('', [
+        Validators.required
+      ])
     })
   }
 
@@ -94,7 +60,7 @@ export class CadastroComponent implements OnInit {
     this.userService.selectedUser = {
       nomeFuncionario: '',
       sobrenomeFuncionario: '',
-      // phone: '',
+      cpfFuncionario: '',
       loginFuncionario: '',
       senhaFuncionario: ''
     };
