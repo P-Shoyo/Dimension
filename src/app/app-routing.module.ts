@@ -13,6 +13,7 @@ import { DownloadComponent } from './usuario/download/download.component';
 import { OverviewComponent } from './overview/overview.component';
 import { ConfiguracoesComponent } from './configuracoes/configuracoes.component';
 import { ShowDataComponent } from './show-data/show-data.component';
+import { ShowData2Component } from './show-data-2/show-data-2.component';
 
 
 const routes: Routes = [
@@ -35,7 +36,9 @@ const routes: Routes = [
 
   {path: 'overview', component:OverviewComponent},
   {path: 'configuracoes', component:ConfiguracoesComponent},
-  {path: 'analytics', component:ShowDataComponent}
+  {path: 'analytics/1', component:ShowDataComponent},
+  {path: 'analytics/2', component:ShowData2Component}
+  
 ];
 
 @NgModule({

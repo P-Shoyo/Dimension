@@ -6,12 +6,12 @@ import { UserService } from '../user.service';
 
 
 @Component({
-  selector: 'app-show-data',
-  templateUrl: './show-data.component.html',
-  styleUrls: ['./show-data.component.css']
+  selector: 'app-show-data-2',
+  templateUrl: './show-data-2.component.html',
+  styleUrls: ['./show-data-2.component.css']
 })
 
-export class ShowDataComponent implements OnInit {
+export class ShowData2Component implements OnInit {
 
   chart: any;
   showHeader = false;
@@ -42,13 +42,13 @@ export class ShowDataComponent implements OnInit {
 
   DashList:any = [];
 
+
   ngOnInit() {
 
     var retrievedLogin = localStorage.getItem('funcionario');
     var idFuncionario = JSON.parse(retrievedLogin).idFuncionario;
     this.user = JSON.parse(retrievedLogin).nomeFuncionario;
     
-    this.showAlertMessage = false;
 
     this.userService.getMaquinas(idFuncionario)
       .subscribe((res: any) => { 
@@ -59,36 +59,24 @@ export class ShowDataComponent implements OnInit {
           this.idMaquina = element.idMaquina;
           console.log(this.idMaquina);          
         }
-      }
-    );
+      });
 
     this.interval = setInterval(() => {
-      this.service.getRegistroRamList(this.maquinasList[0].idMaquina)
-        .subscribe(res => {          
-          // for (let i = 0; i < res.length; i++) {
-          //   const element = res[i];
-          //   // console.log(element);
-          //   if (element.dadosColetados < 85) {
-          //     this.statusMessageRam = "Normal"
-          //   } else {
-          //     this.statusMessageRam = "Perigo"
-          //     this.showAlertMessage = true;
-          //     this.showComponent = "Memória RAM"
-          //   }
-          // }
-          
+      this.service.getRegistroRamList(2)
+        .subscribe(res => {
+
           let hora = res.map(res => res.data.split(" ")[1]);
-          let dado = res.map(res => res.dadosColetados);          
+          let dado = res.map(res => res.dadosColetados);
           
-          if ( res[res.length-1].dadosColetados < 85) {
-            this.statusMessageRam = "Normal"
+          if ( res[res.length-1].dadosColetados < 90) {
+            this.statusMessageRam2 = "Normal"
           } else {
-            this.statusMessageRam = "Perigo"
-            this.showAlertMessage = true;
-            this.showComponent = "Sua Ram está com o uso acima do esperado";
+            this.statusMessageRam2 = "Perigo"
+            this.showAlertMessage2 = true;
+            this.showComponent2 = "Sua Ram está com o uso acima do esperado";
           }
 
-          this.chart = new Chart('canvasRAM', {
+          this.chart = new Chart('canvasRAM2', {
             type: 'line',
             data: {
               labels: hora,
@@ -168,21 +156,21 @@ export class ShowDataComponent implements OnInit {
           })
       })
 
-      this.service.getRegistroPlacaList(this.maquinasList[0].idMaquina)
-        .subscribe(res => {
+      this.service.getRegistroPlacaList(2)
+        .subscribe(res => { 
           
           let hora = res.map(res => res.data.split(" ")[1]);
           let dado = res.map(res => res.dadosColetados);
 
           if ( res[res.length-1].dadosColetados < 90) {
-            this.statusMessagePlaca = "Normal"
+            this.statusMessagePlaca2 = "Normal"
           } else {
-            this.statusMessagePlaca = "Perigo"
-            this.showAlertMessage = true;
-            this.showComponent = "Sua Placa de vídeo está com o uso acima do esperado";
+            this.statusMessagePlaca2 = "Perigo"
+            this.showAlertMessage2 = true;
+            this.showComponent2 = "Sua Placa de Vídeo está com o uso acima do esperado";
           }
   
-          this.chart = new Chart('canvasGPU', {
+          this.chart = new Chart('canvasGPU2', {
             type: 'line',
             data: {
               labels: hora,
@@ -267,19 +255,21 @@ export class ShowDataComponent implements OnInit {
           })
         })
   
-        this.service.getRegistroCpuList(this.maquinasList[0].idMaquina)
-        .subscribe(res => {
+        this.service.getRegistroCpuList(2)
+        .subscribe(res => {  
+                    
           let hora = res.map(res => res.data.split(" ")[1]);
           let dado = res.map(res => res.dadosColetados);
-          
+
           if ( res[res.length-1].dadosColetados < 90) {
-            this.statusMessageCpu = "Normal"
+            this.statusMessageCpu2 = "Normal"
           } else {
-            this.statusMessageCpu = "Perigo"
-            this.showAlertMessage = true;
-            this.showComponent = "Sua CPU está com o uso acima do esperado";
+            this.statusMessageCpu2 = "Perigo"
+            this.showAlertMessage2 = true;
+            this.showComponent2 = "Sua CPU está com o uso acima do esperado";
           }
-          this.chart = new Chart('canvasProcessador', {
+  
+          this.chart = new Chart('canvasProcessador2', {
             type: 'line',
             data: {
               labels: hora,
@@ -364,12 +354,12 @@ export class ShowDataComponent implements OnInit {
           })
         })
 
-        this.service.getRegistroDisco2List(this.maquinasList[0].idMaquina)
+        this.service.getRegistroDisco2List(2)
         .subscribe(disco2 => {          
           this.discoDois = disco2.map(disco2 => disco2.dadosColetados);
         });
 
-        this.service.getRegistroDiscoList(this.maquinasList[0].idMaquina)
+        this.service.getRegistroDiscoList(2)
         .subscribe(res => {
 
           let hora = res.map(res => res.data.split(" ")[1]);
@@ -455,8 +445,7 @@ export class ShowDataComponent implements OnInit {
             }
           })
         })
-       
-
+        
     }, 3000);
 
   }

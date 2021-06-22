@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SharedService } from '../shared.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-configuracoes',
@@ -10,31 +12,76 @@ export class ConfiguracoesComponent implements OnInit {
 
   userList: any[];
   configList: any[];
+  userLog: any;
+  maquinasList: any;
+  idMaquina: any;
+  user: any;
+  idFuncionario: any;
 
-  constructor (private service:SharedService) { }
+  psswd: string;
+  psswdConfirm: string;
+
+  constructor (
+    private service:SharedService,
+    private userService:UserService,
+    private router:Router) { }
 
   ngOnInit() {
 
-    this.refreshDashList();
-    this.refreshConfigList();
+    var retrievedLogin = localStorage.getItem('funcionario');
+    this.idFuncionario = JSON.parse(retrievedLogin).idFuncionario;
+    this.userLog = JSON.parse(retrievedLogin);
+    this.user = JSON.parse(retrievedLogin).nomeFuncionario;
+    //console.log(this.userLog);
+    
 
-    // this.service.getAllUsuarios().subscribe(data => {
-    //   this.userList = data;
-    //   console.log(data);
-    //   // const nomeCompleto = data[0].nomeFuncionario +" " + data[0].sobrenomeFuncionario
-    // });
+    this.userService.getMaquinas(this.idFuncionario)
+      .subscribe((res: any) => { 
+        console.log(res);
+        this.maquinasList = res;
+        for (let i = 0; i < res.length; i++) {
+          const element = res[i];
+          this.idMaquina = element.idMaquina;
+          console.log(this.idMaquina);          
+        }
+      }
+    )
+
   }
 
-  refreshDashList() {
-    this.service.getAllUsuarios().subscribe(data => {
-      this.userList = data;
-    });
+  updatePassword() {
+    if (this.psswd == this.psswdConfirm) {
+      // console.log(this.psswd);
+      this.service.updateUsuario(this.idFuncionario, this.psswd).subscribe(
+        res => {
+          console.log(res);
+        }
+      )
+      alert('Senha atualizada com sucesso!');
+    } else {
+      alert('Senhas não coincidem!');
+    }
   }
 
-  refreshConfigList() {
-    this.service.getConfigList().subscribe(data => {
-      this.configList = data;
-    });
+  deleteAccount() {
+    if (confirm('Você tem certeza?')) {
+      this.service.deleteUsuario(this.idFuncionario).subscribe(
+        res => {
+          console.log(res);
+          alert("Usuário excluído com sucesso!")
+          localStorage.clear();
+          this.router.navigate(['login']);        
+        },
+        error => {
+          console.log(error);
+        }
+      )        
+    }
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['login']);
   }
 
 }

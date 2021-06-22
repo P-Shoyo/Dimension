@@ -108,22 +108,12 @@ export class LoginComponent implements OnInit {
     };
     loginForm.resetForm();
     this.serverErrorMessage='';
-  }
-
-  
+  }  
   // onSubmit(loginForm: NgForm) {
   //   console.log(loginForm.value);
   //   if (this.loginForm.invalid) {
   //     return;
   //   }
-  //   // this.service.getUsuarioList(this.loginForm.value).pipe(
-  //   //   map(token => this.router.navigate(['admin']))
-  //   // ).subscribe();    
   // }
 }
-
-// export function getIdUser(id) {
-//   const idUser = id;
-//   console.log(idUser);
-// }
 

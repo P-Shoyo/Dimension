@@ -14,12 +14,4 @@ export class UsuarioComponent implements OnInit {
   ngOnInit() {
   }
 
-  // showLogin() {
-  //   this.router.navigate(['login'], {relativeTo: this.route});
-  // }
-
-  // showRegister() {
-  //   this.router.navigate(['cadastro'], {relativeTo: this.route});
-  // }
-
 }
