@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { ShowDataComponent } from './show-data/show-data.component';
+import { ShowData2Component } from './show-data-2/show-data-2.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { LoginComponent } from './usuario/login/login.component';
 import { CadastroComponent } from './usuario/cadastro/cadastro.component';
@@ -26,6 +27,7 @@ import { DownloadComponent } from './usuario/download/download.component';
   declarations: [
     AppComponent,
     ShowDataComponent,
+    ShowData2Component,
     UsuarioComponent,
     LoginComponent,
     CadastroComponent,
