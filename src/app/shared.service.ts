@@ -15,8 +15,8 @@ export interface loginForm {
 })
 export class SharedService {
 
-  // readonly APIURL = 'https://dimensionapi.azurewebsites.net/api';
-  readonly APIURL = 'http://localhost:62165/api';
+  readonly APIURL = 'https://dimensionapi.azurewebsites.net/api';
+  // readonly APIURL = 'http://localhost:62165/api';
 
   constructor( private http: HttpClient ) { }
 
