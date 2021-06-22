@@ -365,7 +365,7 @@ export class ShowData2Component implements OnInit {
           let hora = res.map(res => res.data.split(" ")[1]);
           let dado = res.map(res => res.dadosColetados);
   
-          this.chart = new Chart('canvasDisco', {
+          this.chart = new Chart('canvasDisco2', {
             type: 'line',
             data: {
               labels: hora,
